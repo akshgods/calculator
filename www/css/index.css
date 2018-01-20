@@ -103,7 +103,7 @@ button:focus::after {
     cursor: default;
     font-size: 100px;
     position: absolute;
-    top: 1.5em;
+    top: 1em;
     left: 50%;
     text-align: center;
     margin-left: -24px;
@@ -162,8 +162,8 @@ button:focus::after {
 
 
 /* Values that appear onclick */
-
-@-webkit-keyframes zoom {
+/* original */
+/* @-webkit-keyframes zoom {
     0% {
         -webkit-transform: scale(0.2);
         transform: scale(0.2);
@@ -191,9 +191,43 @@ button:focus::after {
     100% {
         opacity: 0;
     }
+} */
+
+/* new copy */
+
+@-webkit-keyframes zoom {
+    0% {
+        -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+        opacity: 1;
+    }
+    70% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 0;
+    }
 }
 
-
+@keyframes zoom {
+    0% {
+       -webkit-transform: scale(0.2);
+        transform: scale(0.2);
+        opacity: 1;
+    }
+    70% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
 /* Division by zero animation */
 
 @-webkit-keyframes broken {
