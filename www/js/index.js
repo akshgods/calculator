@@ -49,16 +49,16 @@ TODO:
         theNum = "", // Current number
         oldNum = "", // First number
         resultNum, // Result
+        clear=el("#clear"),
         operator; // Batman
-
     // When: Number is clicked. Get the current number selected
     var setNum = function () {
-        if (resultNum) { // If a result was displayed, reset number
-            theNum = this.getAttribute("data-num");
-            resultNum = "";
-        } else { // Otherwise, add digit to previous number (this is a string!)
+        // if (resultNum) { // If a result was displayed, reset number
+        //     theNum = this.getAttribute("data-num");
+        //     resultNum = "";
+        // } else { // Otherwise, add digit to previous number (this is a string!)
             theNum += this.getAttribute("data-num");
-        }
+        // }
 
         viewer.innerHTML = theNum; // Display current number
 for (var i = 0, l = ops.length; i < l; i++) {
@@ -68,19 +68,18 @@ for (var i = 0, l = ops.length; i < l; i++) {
 
     // When: Operator is clicked. Pass number to oldNum and save operator
     var moveNum = function () {
-        oldNum = theNum;
+        // oldNum = theNum;
         // theNum = "";
-        operator = this.getAttribute("data-ops");
+        // operator = this.getAttribute("data-ops");
 var sing=this.innerHTML;
 theNum+=sing;
  viewer.innerHTML = theNum;
  for (var i = 0, l = ops.length; i < l; i++) {
      ops[i].onclick= function () {
          return false;
-     }
-         
+     }         
  }
-// equals.setAttribute("data-result", theNum);
+equals.setAttribute("data-result", theNum);
         // equals.setAttribute("data-result", ""); // Reset result in attr
     };
 
@@ -111,9 +110,9 @@ theNum+=sing;
         equals.setAttribute("data-result", resultNum);
 
         // Now reset oldNum & keep result
-        oldNum = 0;
+      //  oldNum = 0;
         theNum = resultNum;
-
+        
     };
 
     // When: Clear button is pressed. Clear everything
@@ -140,7 +139,7 @@ theNum+=sing;
     equals.onclick = displayNum;
 
     // Add click event to clear button
-    el("#clear").onclick = clearAll;
+    clear.onclick = clearAll;
 
     // Add click event to reset button
     el("#reset").onclick = function () {
